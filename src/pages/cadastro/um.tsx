@@ -10,7 +10,7 @@ const Cadastro1: React.FC = () => {
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Senha*" />
                     <input type="password" placeholder="Confirmar Senha" />
-                    <button>Entrar</button>
+                    <button>Próximo</button>
                     <p>Já tem uma conta? <a href="./dois">Faça o login</a></p>
                 </div>
             </main>
