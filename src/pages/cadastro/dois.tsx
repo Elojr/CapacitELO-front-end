@@ -6,10 +6,11 @@ const Cadastro2: React.FC = () => {
             <main>
                 <div className="box-cad2">
                     <h1>Bem vindo ao</h1>
-                    <input type="tel" placeholder="Telefone" />
-                    <input type="text" placeholder="Curso" />
+                    <input className="phone" type="tel" placeholder="Telefone*" />
+                    <input className="curso" type="text" placeholder="Curso" />
+                    <p>*Não obrigatório</p>
                     <button>CADASTRAR</button>
-                    <p>Já tem uma conta? <a href="./dois">Faça o login</a></p>
+                    <p>Já tem uma conta? <a href="../login">Faça login</a></p>
                 </div>
             </main>
         </div>
