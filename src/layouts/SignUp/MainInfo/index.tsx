@@ -1,6 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
 
-const Cadastro1: React.FC = () => {
+const MainInfo: React.FC = () => {
+
     return (
         <div className="cad1">
             <main>
@@ -10,12 +12,12 @@ const Cadastro1: React.FC = () => {
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Senha*" />
                     <input type="password" placeholder="Confirmar Senha" />
-                    <button>Próximo</button>
-                    <p>Já tem uma conta? <a href="./dois">Faça o login</a></p>
+                    <button >Próximo</button>
+                    <p>Já tem uma conta? <Link href="/"><a>Faça o login</a></Link></p>
                 </div>
             </main>
         </div>
     )
 }
 
-export default Cadastro1
+export default MainInfo

@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Cadastro2: React.FC = () => {
+import { Container } from './styles';
+
+const SecondaryInfo: React.FC = () => {
     return (
-        <div className="cad2">
+        <Container>
             <main>
                 <div className="box-cad2">
                     <h1>Bem vindo ao</h1>
@@ -13,8 +15,8 @@ const Cadastro2: React.FC = () => {
                     <p>Já tem uma conta? <a href="../login">Faça login</a></p>
                 </div>
             </main>
-        </div>
+        </Container>
     )
 }
 
-export default Cadastro2
+export default SecondaryInfo
