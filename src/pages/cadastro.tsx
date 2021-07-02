@@ -1,20 +1,20 @@
 import React from 'react';
-import SignInLayout from '../layouts/SignIn';
+import SignUpLayout from '../layouts/SignUp';
 import Head from 'next/head';
 
 import BackgroundSign from '../components/BackgroundSign';
 
-const Login: React.FC = () => {
+const Cadastro: React.FC = () => {
     return (
         <>
             <Head>
-                <title>exame. - Login</title>
+                <title>Entrar</title>
             </Head>
             <BackgroundSign>
-                <SignInLayout />
+                <SignUpLayout />
             </BackgroundSign>
         </>
     )
 }
 
-export default Login
+export default Cadastro

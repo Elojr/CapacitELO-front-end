@@ -1,17 +1,16 @@
 import React from 'react'
 import Head from 'next/head'
+import HomeLayout from '../layouts/Home'
 
 const Home: React.FC = () => {
     return (
-        <div>
+        <>
             <Head>
-                <title>Create Next App</title>
+                <title>exame.</title>
             </Head>
 
-            <main>
-                <h1>Hello World!</h1>
-            </main>
-        </div>
+            <HomeLayout />
+        </>
     )
 }
 
