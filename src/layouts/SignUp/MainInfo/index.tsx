@@ -1,22 +1,33 @@
 import React from 'react'
-import Link from 'next/link'
+import { Container } from './styles';
+import { AiOutlineUser } from 'react-icons/ai';
 
 const MainInfo: React.FC = () => {
 
     return (
-        <div className="cad1">
-            <main>
-                <div className="box-cad1">
-                    <h1>Bem vindo ao</h1>
+        <Container>
+            <div className="cad1">
+                <label>
+                    {/* <AiOutlineUser className="iconUser"/> */}
                     <input type="text" placeholder="Nome Completo" />
+                </label>
+
+                <label>
                     <input type="email" placeholder="Email" />
+                </label>
+
+                <label>
                     <input type="password" placeholder="Senha*" />
+                </label>
+
+                <label>
                     <input type="password" placeholder="Confirmar Senha" />
-                    <button >Próximo</button>
-                    <p>Já tem uma conta? <Link href="/"><a>Faça o login</a></Link></p>
-                </div>
-            </main>
-        </div>
+                </label>
+
+                <p className="warn">*A senha deve conter de 6 a 24 caracteres</p>
+                <button>PRÓXIMO</button>
+            </div>
+        </Container>
     )
 }
 
