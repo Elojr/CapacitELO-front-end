@@ -11,7 +11,7 @@ const SignUp: React.FC = () => {
             <main>
                 <h2>Bem vindo ao</h2>
                 <h1>exame.</h1>
-                <SecondaryInfo />
+                <MainInfo />
                 <p className="toLogin">
                     Já tem uma conta?&nbsp;
                     <Link href="/login"><a>Faça o login</a></Link>
