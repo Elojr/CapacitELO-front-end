@@ -7,8 +7,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: #121214;
-    color: #e1e1e6;
+    background: #F3F5F9;
+    color: #121214;
     font: 400 16px Roboto, sans-serif;
   }
 `
