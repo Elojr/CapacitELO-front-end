@@ -20,7 +20,7 @@ export const Container = styled.div`
         margin: auto 0;
     }
 
-    .toLogin {
+    .logo {
         align-self: center;
     }
 

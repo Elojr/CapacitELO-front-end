@@ -5,7 +5,12 @@ export const Container = styled.div`
     flex-direction: column;
     align-self: center;
     width: 100%;
-    .cad2{
+    .rec2{
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
         input{
             background: #FFFFFF;
@@ -19,21 +24,6 @@ export const Container = styled.div`
             align-self: center;
             width: 100%
         }
-
-        label {
-            width: 100%;
-        }
-
-        /* label {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-        }
-
-        .iconUser{
-            position: relative;
-            left: 50px;
-        } */
 
         button {
             align-self: center;

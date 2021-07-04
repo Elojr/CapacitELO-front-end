@@ -1,11 +1,18 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-self: center;
     width: 100%;
-    .cad2{
+    .rec1{
+
+        .infotxt{
+            text-align: center;
+            margin-bottom: 20px;
+            width: 18em; word-wrap: break-word;
+        }
 
         input{
             background: #FFFFFF;
@@ -20,21 +27,6 @@ export const Container = styled.div`
             width: 100%
         }
 
-        label {
-            width: 100%;
-        }
-
-        /* label {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-        }
-
-        .iconUser{
-            position: relative;
-            left: 50px;
-        } */
-
         button {
             align-self: center;
             width: 100%;
@@ -48,7 +40,13 @@ export const Container = styled.div`
             padding: 5px;
             margin: 10px 0;
         }
+
+        .toLogin {
+            text-align: center;
+        }
     }
 
 
 `;
+
+

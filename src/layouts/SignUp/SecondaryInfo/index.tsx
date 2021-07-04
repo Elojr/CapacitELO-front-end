@@ -1,20 +1,18 @@
 import React from 'react'
 
-const SignIn: React.FC = () => {
+import { Container } from './styles';
+
+const SecondaryRec: React.FC = () => {
     return (
-        <div className="login">
-            <main>
-                <div className="box-login">
-                    <h1>Bem vindo ao</h1>
-                    <input type="text" placeholder="Nome" />
-                    <input type="text" placeholder="Senha" />
-                    <p>Esqueceu sua senha?</p>
-                    <button>Entrar</button>
-                    <p> Nao tem uma conta? Cadastre-se ja.</p>
-                </div>
-            </main>
-        </div>
+        <Container>
+            <div className="cad2">
+                <input type="tel" placeholder="Telefone*"/>
+                <input type="text" placeholder="Curso"/>
+                <p>*Não obrigatório</p>
+                <button>CADASTRAR</button>
+            </div>
+        </Container>
     )
 }
 
-export default SignIn
+export default SecondaryRec
