@@ -1,11 +1,13 @@
 import React from 'react'
+import { Container } from './styles'
 
 const SignIn: React.FC = () => {
     return (
-        <div className="login">
+        <Container>
             <main>
                 <div className="box-login">
-                    <h1>Bem vindo ao</h1>
+                    <h2>Bem vindo ao</h2>
+                    <h1>exame.</h1>
                     <input type="text" placeholder="Nome" />
                     <input type="text" placeholder="Senha" />
                     <p>Esqueceu sua senha?</p>
@@ -13,7 +15,7 @@ const SignIn: React.FC = () => {
                     <p> Nao tem uma conta? Cadastre-se ja.</p>
                 </div>
             </main>
-        </div>
+        </Container>
     )
 }
 
