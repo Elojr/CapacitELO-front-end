@@ -25,7 +25,7 @@ const MainInfo: React.FC = () => {
                 </label>
 
                 <p className="warn">*A senha deve conter de 6 a 24 caracteres</p>
-                <button>PRÓXIMO</button>
+                <button>Próximo</button>
             </div>
         </Container>
     )

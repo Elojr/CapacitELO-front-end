@@ -8,8 +8,8 @@ const SecondaryRec: React.FC = () => {
             <div className="cad2">
                 <input type="tel" placeholder="Telefone*"/>
                 <input type="text" placeholder="Curso"/>
-                <p>*Não obrigatório</p>
-                <button>CADASTRAR</button>
+                <p className="warn">*Não obrigatório</p>
+                <button>Cadastrar</button>
             </div>
         </Container>
     )

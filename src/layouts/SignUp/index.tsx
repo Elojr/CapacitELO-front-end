@@ -9,12 +9,14 @@ const SignUp: React.FC = () => {
     return (
         <Container>
             <main>
-                <h2>Bem vindo ao</h2>
-                <h1>exame.</h1>
+                <div className="logo">
+                    <h2>Bem vindo ao</h2>
+                    <h1>exame.</h1>
+                </div>
                 <MainInfo />
                 <p className="toLogin">
                     Já tem uma conta?&nbsp;
-                    <Link href="/login"><a>Faça o login</a></Link>
+                    <Link href="/login"><a>Faça o login!</a></Link>
                 </p>
             </main>
         </Container>
