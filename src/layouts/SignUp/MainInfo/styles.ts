@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-self: center;
     width: 100%;
-    .cad1{
-
+    .cad1 {
         input {
             background: #ffffff;
             border: 2px solid #c5c5c5;
@@ -21,26 +19,11 @@ export const Container = styled.div`
             height: 40px;
         }
 
-        label {
-            width: 100%;
-        }
-
-        /* label {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-        }
-
-        .iconUser{
-            position: relative;
-            left: 50px;
-        } */
-
         .warn {
             font-size: 13px;
             margin-top: -10px;
             margin-bottom: 20px;
-            color: #3E3D56;
+            color: #3e3d56;
         }
 
         button {
@@ -58,13 +41,10 @@ export const Container = styled.div`
             transition: transform 1s;
             transform: translateX(0) scale(1);
         }
+
+        button:hover {
+            background: #00b049;
+            transform: translateX(0px) scale(1.1);
+        }
     }
-
-    button:hover,
-    button:focus {
-        background: #00b049;
-        transform: translateX(0px) scale(1.1);
-    }
-`;
-
-
+`

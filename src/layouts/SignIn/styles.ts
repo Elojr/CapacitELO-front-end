@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 619px;
-    height: 781px;
+    height: 100vh;
     background: #ffffff;
     box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
@@ -19,8 +19,8 @@ export const Container = styled.div`
         font-family: 'Poppins', sans-serif;
     }
 
-    .box-login {
-        .logo{
+    .login {
+        .logo {
             text-align: center;
             margin-bottom: 60px;
             h1 {
@@ -39,7 +39,7 @@ export const Container = styled.div`
             }
 
             h2 {
-                color: #3E3D56;
+                color: #3e3d56;
                 cursor: default;
                 font-size: 30px;
                 margin-bottom: -10px;
@@ -48,18 +48,29 @@ export const Container = styled.div`
             }
         }
 
-            input {
-                background: #ffffff;
-                border: 2px solid #c5c5c5;
-                border-radius: 4px;
-                display: block;
-                outline: none;
-                font-size: 19px;
-                margin-bottom: 15px;
-                padding: 10px;
-                width: 300px;
-                height: 40px;
+        input {
+            background: #ffffff;
+            border: 2px solid #c5c5c5;
+            border-radius: 4px;
+            display: block;
+            outline: none;
+            font-size: 19px;
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 300px;
+            height: 40px;
+        }
+
+        .toRecover {
+            margin-top: -10px;
+            margin-left: 144px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #3e3d56;
+            a {
+                color: #3e3d56;
             }
+        }
 
         button {
             width: 300px;
@@ -77,30 +88,19 @@ export const Container = styled.div`
             transform: translateX(0) scale(1);
         }
 
-        .toRecover {
-            margin-top: -10px;
-            margin-left: 144px;
-            margin-bottom: 20px;
-            font-size: 13px;
-            color: #3E3D56;
-            a{
-                color: #3E3D56;
-            }
+        button:hover,
+        button:focus {
+            background: #00b049;
+            transform: translateX(0px) scale(1.1);
         }
 
         .toRegister {
             text-align: center;
             font-size: 15px;
-            color: #3E3D56;
-            a{
-                color: #3E3D56;
+            color: #3e3d56;
+            a {
+                color: #3e3d56;
             }
-        }
-
-        button:hover,
-        button:focus {
-            background: #00b049;
-            transform: translateX(0px) scale(1.1);
         }
     }
 `

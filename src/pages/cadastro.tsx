@@ -1,8 +1,8 @@
-import React from 'react';
-import Head from 'next/head';
+import React from 'react'
+import Head from 'next/head'
 
-import SignUpLayout from '../layouts/SignUp';
-import BackgroundSign from '../components/BackgroundSign';
+import SignUpLayout from '../layouts/SignUp'
+import BackgroundSign from '../components/BackgroundSign'
 
 const Cadastro: React.FC = () => {
     return (

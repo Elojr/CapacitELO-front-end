@@ -1,8 +1,8 @@
-import React from 'react';
-import Head from 'next/head';
+import React from 'react'
+import Head from 'next/head'
 
-import RecoverPasswordLayout from '../layouts/RecoverPassword';
-import BackgroundSign from '../components/BackgroundSign';
+import RecoverPasswordLayout from '../layouts/RecoverPassword'
+import BackgroundSign from '../components/BackgroundSign'
 
 const Recuperar: React.FC = () => {
     return (

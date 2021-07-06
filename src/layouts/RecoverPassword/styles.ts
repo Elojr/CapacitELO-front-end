@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 619px;
-    height: 781px;
+    height: 100vh;
 
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
 
@@ -21,7 +21,7 @@ export const Container = styled.div`
         font-family: 'Poppins', sans-serif;
     }
 
-    .logo{
+    .logo {
         margin-left: 25px;
         margin-bottom: 20px;
         h1 {
@@ -40,7 +40,7 @@ export const Container = styled.div`
         }
 
         h2 {
-            color: #3E3D56;
+            color: #3e3d56;
             cursor: default;
             font-size: 30px;
             margin-bottom: -10px;
@@ -48,4 +48,4 @@ export const Container = styled.div`
             user-select: none;
         }
     }
-`;
+`
