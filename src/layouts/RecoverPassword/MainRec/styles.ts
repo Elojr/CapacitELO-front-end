@@ -1,21 +1,20 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-self: center;
     width: 100%;
-    .rec1{
-
-        .infotxt{
+    .rec1 {
+        .infotxt {
             text-align: center;
             margin-bottom: 20px;
-            width: 20em; word-wrap: break-word;
+            width: 20em;
+            word-wrap: break-word;
             font-size: 15px;
         }
 
-        input{
+        input {
             background: #ffffff;
             border: 2px solid #c5c5c5;
             border-radius: 4px;
@@ -44,25 +43,19 @@ export const Container = styled.div`
             transform: translateX(0) scale(1);
         }
 
-        .toRegister {
-        text-align: center;
-        font-size: 15px;
-        color: #3E3D56;
-        margin-top: -30px;
-        a{
-            color: #3E3D56;
-        }
-        }
-
-        button:hover,
-        button:focus {
+        button:hover {
             background: #00b049;
             transform: translateX(0px) scale(1.1);
         }
 
+        .toRegister {
+            text-align: center;
+            font-size: 15px;
+            color: #3e3d56;
+            margin-top: -30px;
+            a {
+                color: #3e3d56;
+            }
+        }
     }
-
-
-`;
-
-
+`

@@ -1,20 +1,19 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-self: center;
     width: 100%;
-    .rec2{
-
+    .rec2 {
         p {
             text-align: center;
             margin-bottom: 20px;
             font-size: 23px;
-            color: #3E3D56;
+            color: #3e3d56;
         }
 
-        input{
+        input {
             background: #ffffff;
             border: 2px solid #c5c5c5;
             border-radius: 4px;
@@ -43,13 +42,9 @@ export const Container = styled.div`
             transform: translateX(0) scale(1);
         }
 
-        button:hover,
-        button:focus {
+        button:hover {
             background: #00b049;
             transform: translateX(0px) scale(1.1);
         }
-
     }
-
-
-`;
+`
