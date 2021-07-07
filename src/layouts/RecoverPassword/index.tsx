@@ -12,7 +12,7 @@ const Recuperar: React.FC = () => {
                     <h2>Bem vindo ao</h2>
                     <h1>exame.</h1>
                 </div>
-                <MainRec />
+                <SecondaryRec />
             </main>
         </Container>
     )

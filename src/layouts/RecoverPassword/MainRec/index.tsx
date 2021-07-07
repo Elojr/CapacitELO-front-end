@@ -9,11 +9,11 @@ const SecondaryInfo: React.FC = () => {
             <div className="rec1">
                 <p className="infotxt">
                     Insira o seu email e enviaremos um link
-                    para você voltar a acessar a sua conta.
+                    para você voltar a acessar a sua conta
                 </p>
                 <input type="email" placeholder="Email"/>
                 <button>Enviar link para recuperar senha</button>
-                <p className="toLogin">
+                <p className="toRegister">
                     Não tem uma conta?&nbsp;
                     <Link href="/cadastro"><a>Cadastre-se já!</a></Link>
                 </p>

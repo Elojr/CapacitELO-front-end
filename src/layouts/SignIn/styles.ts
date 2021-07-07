@@ -16,45 +16,54 @@ export const Container = styled.div`
         align-items: flex-start;
         flex-direction: column;
         margin: auto 0;
+        font-family: 'Poppins', sans-serif;
     }
 
     .box-login {
-        h1 {
-            font-family: Lato;
-            font-style: normal;
-            font-weight: 800;
-            font-size: 60px;
-            line-height: 40px;
-            letter-spacing: -0.05em;
-            cursor: default;
-            align-self: center;
-            color: #00b049;
-            margin-bottom: 40px;
-            user-select: none;
+        .logo{
+            text-align: center;
+            margin-bottom: 60px;
+            h1 {
+                font-family: Lato;
+                font-style: normal;
+                font-weight: 800;
+                font-size: 70px;
+                line-height: 40px;
+                letter-spacing: -0.05em;
+                cursor: default;
+                align-self: center;
+                color: #00b049;
+                margin-bottom: 40px;
+                margin-left: 40px;
+                user-select: none;
+            }
+
+            h2 {
+                color: #3E3D56;
+                cursor: default;
+                font-size: 30px;
+                margin-bottom: -10px;
+                margin-right: 45px;
+                user-select: none;
+            }
         }
 
-        h2 {
-            cursor: default;
-            font-size: 28px;
-            margin-bottom: -10px;
-            user-select: none;
-        }
-        input {
-            background: #ffffff;
-            border: 2px solid #c5c5c5;
-            border-radius: 5px;
-            display: block;
-            outline: none;
-            font-size: 19px;
-            margin-bottom: 6px;
-            padding: 5px;
-            align-self: center;
-            width: 100%;
-        }
+            input {
+                background: #ffffff;
+                border: 2px solid #c5c5c5;
+                border-radius: 4px;
+                display: block;
+                outline: none;
+                font-size: 19px;
+                margin-bottom: 15px;
+                padding: 10px;
+                width: 300px;
+                height: 40px;
+            }
 
         button {
-            align-self: center;
-            width: 100%;
+            width: 300px;
+            height: 40px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -64,6 +73,34 @@ export const Container = styled.div`
             background-color: #00b049;
             padding: 5px;
             margin: 10px 0;
+            transition: transform 1s;
+            transform: translateX(0) scale(1);
+        }
+
+        .toRecover {
+            margin-top: -10px;
+            margin-left: 144px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #3E3D56;
+            a{
+                color: #3E3D56;
+            }
+        }
+
+        .toRegister {
+            text-align: center;
+            font-size: 15px;
+            color: #3E3D56;
+            a{
+                color: #3E3D56;
+            }
+        }
+
+        button:hover,
+        button:focus {
+            background: #00b049;
+            transform: translateX(0px) scale(1.1);
         }
     }
 `
