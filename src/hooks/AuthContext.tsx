@@ -6,7 +6,9 @@ import {
     ReactNode,
 } from 'react'
 import { api } from '../services/api'
-import router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
+import { setCookie, parseCookies } from 'nookies'
+import permissionRoutesConfig from '../config/permissionRoutes'
 
 interface IAuthContextData {
     user: IUser | null
@@ -28,6 +30,12 @@ interface ISignInDTO {
     password: string
 }
 
+interface ISignUpDTO {
+    name: string
+    email: string
+    password: string
+}
+
 export const AuthContext = createContext({} as IAuthContextData)
 
 export function AuthProvider({ children }: IAuthProviderProps) {
@@ -35,36 +43,40 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     const router = useRouter()
 
     useEffect(() => {
-        const user = localStorage.getItem('@exame:user')
+        const cookies = parseCookies()
+        const token = cookies['@exame:token']
 
-        if (!user) {
+        if (!token) {
+            permissionRoutesConfig.public.forEach(route => {})
             router.push('/login')
             return
         }
-
-        setUser(JSON.parse(user))
     }, [])
 
     async function signIn({ email, password }: ISignInDTO): Promise<void> {
         const response = await api.post('/sessions', { email, password })
         const data = response.data
+
         setUser({
             id: data.user.id,
             name: data.user.name,
             token: data.token,
         })
-        localStorage.setItem(
-            '@exame:user',
-            JSON.stringify({
-                id: data.user.id,
-                name: data.user.name,
-                token: data.token,
-            })
-        )
-        console.log(data)
+
+        setCookie(undefined, '@exame:token', data.token, {
+            maxAge: 60 * 60 * 24, //1 dia
+        })
     }
 
-    async function signOut() {}
+    async function signUp({
+        name,
+        email,
+        password,
+    }: ISignUpDTO): Promise<void> {}
+
+    async function signOut() {
+        localStorage.clear()
+    }
 
     return (
         <AuthContext.Provider value={{ user, signIn }}>
@@ -76,4 +88,11 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 export function useAuth() {
     const context = useContext(AuthContext)
     return context
+}
+
+export const getServerSideProps = (ctx: any) => {
+    console.log(ctx)
+    return {
+        props: {}, // will be passed to the page component as props
+    }
 }

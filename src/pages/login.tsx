@@ -18,3 +18,10 @@ const Login: React.FC = () => {
 }
 
 export default Login
+
+export const getServerSideProps = (ctx: any) => {
+    console.log(ctx)
+    return {
+        props: {}, // will be passed to the page component as props
+    }
+}

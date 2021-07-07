@@ -88,10 +88,13 @@ export const Container = styled.div`
             transform: translateX(0) scale(1);
         }
 
-        button:hover,
-        button:focus {
+        button:hover {
             background: #00b049;
             transform: translateX(0px) scale(1.1);
+        }
+
+        button:hover:after {
+            transform: translateX(0px) scale(1);
         }
 
         .toRegister {

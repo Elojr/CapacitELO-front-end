@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Container } from './styles'
 import { api } from '../../services/api'
 import Link from 'next/link'
+import { parseCookies, destroyCookie } from 'nookies'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 interface ISubjects {
     id: number
@@ -15,16 +18,27 @@ interface IResponse {
 
 function Home() {
     const [materias, setMaterias] = useState<ISubjects[]>([])
+    const router = useRouter()
+    const cookies = parseCookies()
+    const token = cookies['@exame:token']
 
     async function request() {
-        const response = await api.get<IResponse>('/subjects', {
-            headers: {
-                Authorization:
-                    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU1OTczMzYsImV4cCI6MTYyNTY4MzczNiwic3ViIjoiMSJ9.pxhucipHY_u5kdYwFgxJEzsk31wjHvzFLiMSoQzzvVQ',
-            },
-        })
-        const data = response.data
-        setMaterias(data.subjects)
+        try {
+            const response = await api.get<IResponse>('/subjects', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            const data = response.data
+            setMaterias(data.subjects)
+        } catch (err: any) {
+            toast.error(err.response.data.message)
+        }
+    }
+
+    function handleSignOut() {
+        destroyCookie(undefined, '@exame:token')
+        router.push('/login')
     }
 
     useEffect(() => {
@@ -60,6 +74,7 @@ function Home() {
                                 </Link>
                             )
                         })}
+                        <button onClick={handleSignOut}>sair</button>
                     </div>
                 </div>
             </main>

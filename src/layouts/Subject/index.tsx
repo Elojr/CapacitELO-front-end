@@ -18,32 +18,6 @@ const Subject: React.FC = () => {
                         <option value="a-z">A - Z</option>
                         <option value="z-a">Z - A</option>
                     </select>
-
-                    <div className="container-cards">
-                        {/* {materias.map(materia => {
-                            return (
-                                <Link href=`/${materia.id}` passHref>
-                                    <a className="card">{nateria.nome}</a>
-                                </Link>
-                            )
-                        })} */}
-
-                        <Link href="/login" passHref>
-                            <a className="card">Algoritmos e Programação 1</a>
-                        </Link>
-                        <Link href="/login" passHref>
-                            <a className="card">Algoritmos</a>
-                        </Link>
-                        <Link href="/login" passHref>
-                            <a className="card">Algoritmos e Programação 1</a>
-                        </Link>
-                        <Link href="/login" passHref>
-                            <a className="card">Algoritmos e Programação 1</a>
-                        </Link>
-                        <Link href="/login" passHref>
-                            <a className="card">Algoritmos e Programação 1</a>
-                        </Link>
-                    </div>
                 </div>
             </main>
         </Container>
