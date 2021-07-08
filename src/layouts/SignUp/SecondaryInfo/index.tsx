@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Container } from './styles'
 import { api } from '../../../services/api'
 import { IFormData } from '..'
-import { useRouter } from 'next/router'
-import { useAuth } from '../../../hooks/AuthContext'
+import router, { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 
 interface ISecondaryInfoProps {
     formData: IFormData
@@ -19,11 +19,19 @@ const SecondaryInfo: React.FC<ISecondaryInfoProps> = ({
     const [phone, setPhone] = useState('')
     const [course, setCourse] = useState('')
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {}
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+        const data={ ...formData, phone, course, university:"UFG" }
+        setFormData(data)
+        setIsEndingForm(true)
+        await api({ url:"/users", data, method: "POST" })
+        router.push('/login')
+        toast.success('Cadastro realizado com sucesso! Faça o login para continuar.')
+    }
 
     return (
         <Container>
-            <div className="cad2">
+            <form className="cad2" onSubmit={handleSubmit}>
                 <input
                     type="tel"
                     placeholder="Telefone*"
@@ -41,8 +49,8 @@ const SecondaryInfo: React.FC<ISecondaryInfoProps> = ({
                     value={course}
                 />
                 <p className="warn">*Não obrigatório</p>
-                <button>Cadastrar</button>
-            </div>
+                <button type="submit">Cadastrar</button>
+            </form>
         </Container>
     )
 }

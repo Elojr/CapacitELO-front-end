@@ -1,13 +1,13 @@
 import React from 'react'
 
-import MainRec from './MainRec';
+import SecondaryRec from './SecondaryRec';
 import { Container } from './styles';
 
-export interface IFormData {
-    email?: string
+interface IReacuperarProps {
+    token: string | undefined;
 }
 
-const Recuperar: React.FC = () => {
+const Recuperar: React.FC<IReacuperarProps> = ({ token }) => {
     return (
         <Container>
             <main>
@@ -15,7 +15,7 @@ const Recuperar: React.FC = () => {
                     <h2>Bem vindo ao</h2>
                     <h1>exame.</h1>
                 </div>
-                <MainRec />
+                <SecondaryRec token={token} />
             </main>
         </Container>
     )

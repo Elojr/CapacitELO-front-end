@@ -12,7 +12,6 @@ export const Container = styled.div`
             font-size: 23px;
             color: #3e3d56;
         }
-
         input {
             background: #ffffff;
             border: 2px solid #c5c5c5;
@@ -25,7 +24,6 @@ export const Container = styled.div`
             width: 300px;
             height: 40px;
         }
-
         button {
             width: 300px;
             height: 40px;
@@ -41,7 +39,6 @@ export const Container = styled.div`
             transition: transform 1s;
             transform: translateX(0) scale(1);
         }
-
         button:hover {
             background: #00b049;
             transform: translateX(0px) scale(1.1);

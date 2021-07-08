@@ -49,9 +49,11 @@ function Home() {
         <Container>
             <main>
                 <div className="home">
+
                     <div className="titles">
                         <h1>Matérias</h1>
                         <h2>Listagem das matérias</h2>
+                        <button onClick={handleSignOut}>sair</button>
                     </div>
                     <select name="Filtro" defaultValue="recentes">
                         <option value="recentes">Mais recentes</option>
@@ -74,7 +76,7 @@ function Home() {
                                 </Link>
                             )
                         })}
-                        <button onClick={handleSignOut}>sair</button>
+
                     </div>
                 </div>
             </main>

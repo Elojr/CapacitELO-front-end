@@ -23,6 +23,7 @@ interface IUser {
     id: number
     name: string
     token: string
+    avatar_url: string | null
 }
 
 interface ISignInDTO {
@@ -43,14 +44,20 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     const router = useRouter()
 
     useEffect(() => {
-        const cookies = parseCookies()
-        const token = cookies['@exame:token']
-
-        if (!token) {
-            permissionRoutesConfig.public.forEach(route => {})
-            router.push('/login')
-            return
+        async function getUserData() {
+            const { '@exame:token': token } = parseCookies()
+            if (token) {
+                const response = await api.get('/profile')
+                const data = await response.data
+                setUser({
+                    id: data.id,
+                    name: data.name,
+                    token: token,
+                    avatar_url: data.avatar_url
+                })
+            }
         }
+        getUserData()
     }, [])
 
     async function signIn({ email, password }: ISignInDTO): Promise<void> {
@@ -61,6 +68,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
             id: data.user.id,
             name: data.user.name,
             token: data.token,
+            avatar_url: data.avatar_url
         })
 
         setCookie(undefined, '@exame:token', data.token, {
@@ -72,6 +80,8 @@ export function AuthProvider({ children }: IAuthProviderProps) {
         name,
         email,
         password,
+
+
     }: ISignUpDTO): Promise<void> {}
 
     async function signOut() {
@@ -88,11 +98,4 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 export function useAuth() {
     const context = useContext(AuthContext)
     return context
-}
-
-export const getServerSideProps = (ctx: any) => {
-    console.log(ctx)
-    return {
-        props: {}, // will be passed to the page component as props
-    }
 }
