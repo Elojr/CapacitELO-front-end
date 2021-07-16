@@ -2,12 +2,15 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
     :root {
+        --color-dark-white: #F3F5F9;
         --color-white: #FFFFFF;
         --color-black: #3E3D56;
         --color-grey: #C5C5C5;
         --color-light-green: #00B049;
         --color-red: #E44242;
         --size-padding-mobile: 20px;
+        --size-grid-width: 1350px;
+        //--size-grid: calc(var(--size-grid-width) + 2 * var(--size-padding-mobile));
     }
     * {
         margin: 0;
@@ -15,7 +18,7 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        background: #F3F5F9;
+        background: var(--color-dark-white);
         color: #121214;
         font: 400 16px Roboto, sans-serif;
     }

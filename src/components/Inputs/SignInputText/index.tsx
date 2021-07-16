@@ -2,7 +2,8 @@ import React from 'react'
 import { Container, Input, InputContainer, Error } from './styles'
 import { UseFormRegister, UseFormRegisterReturn } from 'react-hook-form'
 
-interface ISignInputTextProps extends React.HTMLAttributes<HTMLInputElement> {
+interface ISignInputTextProps
+    extends React.InputHTMLAttributes<HTMLInputElement> {
     register: UseFormRegisterReturn
     error: string | undefined
     icon: React.ReactNode

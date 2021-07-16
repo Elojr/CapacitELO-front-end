@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import NavBar from '../components/NavBar'
 import HomeLayout from '../layouts/Home'
+import BackgroundPrivate from '../components/BackgroundPrivate'
 import { authRoutesHandler } from '../helpers/authRoutesHandler'
 
 const Home: React.FC = () => {
@@ -10,8 +10,9 @@ const Home: React.FC = () => {
             <Head>
                 <title>exame.Home</title>
             </Head>
-            <NavBar></NavBar>
-            <HomeLayout />
+            <BackgroundPrivate>
+                <HomeLayout />
+            </BackgroundPrivate>
         </>
     )
 }

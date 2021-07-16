@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react'
+import { setCookie, destroyCookie, parseCookies } from 'nookies'
 import { api, CREATE_SESSION } from '../services/api'
 import { updateTokenApiClient } from '../services/apiClient'
-import { setCookie, destroyCookie, parseCookies } from 'nookies'
 
 interface IUser {
     id: number

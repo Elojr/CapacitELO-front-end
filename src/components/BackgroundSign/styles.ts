@@ -9,7 +9,7 @@ export const Container = styled.div`
     justify-content: center;
 
     position: relative;
-    background-color: #f3f5f9;
+    background-color: var(--color-dark-white);
 
     .balls {
         position: fixed;

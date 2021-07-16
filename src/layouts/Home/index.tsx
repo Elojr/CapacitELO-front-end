@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from './styles'
-import { api } from '../../services/api'
+import { api, LIST_SUBJECTS } from '../../services/api'
 import Link from 'next/link'
 
 interface ISubjects {
@@ -14,55 +14,36 @@ interface IResponse {
 }
 
 function Home() {
-    const [materias, setMaterias] = useState<ISubjects[]>([])
-
-    async function request() {
-        const response = await api.get<IResponse>('/subjects', {
-            headers: {
-                Authorization:
-                    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU1OTczMzYsImV4cCI6MTYyNTY4MzczNiwic3ViIjoiMSJ9.pxhucipHY_u5kdYwFgxJEzsk31wjHvzFLiMSoQzzvVQ',
-            },
-        })
-        const data = response.data
-        setMaterias(data.subjects)
+    const [materias, setMaterias] = React.useState<ISubjects[]>([])
+    async function getSubjects() {
+        try {
+            const response = await api(LIST_SUBJECTS({}))
+            const data = response.data as IResponse
+            setMaterias(data.subjects)
+        } catch (err) {
+            console.log(err)
+        }
     }
-
-    useEffect(() => {
-        request()
+    React.useEffect(() => {
+        getSubjects()
     }, [])
-
     return (
         <Container>
-            <main>
-                <div className="home">
-                    <div className="titles">
-                        <h1>Matérias</h1>
-                        <h2>Listagem das matérias</h2>
-                    </div>
-                    <select name="Filtro" defaultValue="recentes">
-                        <option value="recentes">Mais recentes</option>
-                        <option value="antigos">Mais antigos</option>
-                        <option value="a-z">A - Z</option>
-                        <option value="z-a">Z - A</option>
-                    </select>
-
-                    <div className="container-cards">
-                        {materias.map(materia => {
-                            return (
-                                <Link
-                                    href={`/materias/${materia.id}`}
-                                    key={materia.id}
-                                    passHref
-                                >
-                                    <a className="card">
-                                        {materia.subject_name}
-                                    </a>
-                                </Link>
-                            )
-                        })}
-                    </div>
+            <div className="materias-title">
+                <div className="title">
+                    <h1>Matérias</h1>
+                    <h2>Listagem de matérias</h2>
                 </div>
-            </main>
+                <div className="title-filters"></div>
+            </div>
+            <div className="materias-content">
+                {materias.length > 0 &&
+                    materias.map(item => (
+                        <button className="content-card" key={item.id}>
+                            <h3>{item.subject_name}</h3>
+                        </button>
+                    ))}
+            </div>
         </Container>
     )
 }

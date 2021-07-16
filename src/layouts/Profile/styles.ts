@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     width: 1200px;
     height: 725px;
-    background: #ffffff;
+    background: var(--color-white);
     box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
     display: flex;
@@ -35,13 +35,13 @@ export const Container = styled.div`
         margin-bottom: 30px;
     }
     .provas {
-        background-color: #f3f5f9;
+        background-color: var(--color-dark-white);
         color: #3e3d56;
         box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
         border-radius: 7px;
         width: 300px;
         height: 85px;
-        border: #f3f5f9;
+        border: var(--color-dark-white);
         margin-bottom: 25px;
         font-size: 30px;
         font-weight: bold;
@@ -51,7 +51,7 @@ export const Container = styled.div`
         height: 50px;
         background-color: #e44242;
         border: #e44242;
-        color: #ffffff;
+        color: var(--color-white);
         border-radius: 7px;
         box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
         font-size: 18px;

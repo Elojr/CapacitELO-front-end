@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ReactSVG } from 'react-svg'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import SignInputText from '../../../components/Inputs/SignInputText'
 
@@ -11,6 +12,7 @@ import LightGreenButton from '../../../components/Buttons/LightGreenButton'
 
 import { IFullFormValues } from '../'
 
+import { signUpSecondaryInfoSchema } from '../../../validators/signUp'
 interface IFormValues {
     phone: string
     course: string
@@ -32,7 +34,9 @@ const SecondaryInfo: React.FC<ISecondaryInfoProps> = ({
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormValues>()
+    } = useForm<IFormValues>({
+        resolver: yupResolver(signUpSecondaryInfoSchema),
+    })
     const handleFormSubmit = React.useCallback<SubmitHandler<IFormValues>>(
         async data => {
             try {

@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { ReactSVG } from 'react-svg'
 
 import { Container } from './styles'
@@ -10,6 +11,8 @@ import SignInputText from '../../components/Inputs/SignInputText'
 import LightGreenButton from '../../components/Buttons/LightGreenButton'
 
 import { api, RESET_PASSWORD } from '../../services/api'
+
+import { resetPasswordSchema } from '../../validators/resetPassword'
 
 interface IFormValues {
     password: string
@@ -26,7 +29,9 @@ const ResetPassword: React.FC<IResetPasswordProps> = ({ token }) => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormValues>()
+    } = useForm<IFormValues>({
+        resolver: yupResolver(resetPasswordSchema),
+    })
 
     const handleFormSubmit = React.useCallback<SubmitHandler<IFormValues>>(
         async data => {

@@ -1,13 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { ReactSVG } from 'react-svg'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import SignInputText from '../../../components/Inputs/SignInputText'
 import LightGreenButton from '../../../components/Buttons/LightGreenButton'
 
-import { api } from '../../../services/api'
+import { signUnMainInfoSchema } from '../../../validators/signUp'
 
 import { IFullFormValues } from '../'
 
@@ -30,12 +30,13 @@ const MainInfo: React.FC<IMainInfoProps> = ({
     fullFormValues,
     setFullFormValues,
 }) => {
-    const router = useRouter()
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormValues>()
+    } = useForm<IFormValues>({
+        resolver: yupResolver(signUnMainInfoSchema),
+    })
     const handleFormSubmit = React.useCallback<SubmitHandler<IFormValues>>(
         async data => {
             try {

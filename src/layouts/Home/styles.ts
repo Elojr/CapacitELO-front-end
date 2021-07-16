@@ -1,80 +1,66 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    flex-direction: column;
     width: 100%;
-    main {
-        font-family: 'Poppins', sans-serif;
-        align-self: center;
-        flex-direction: column;
-        margin: auto 0;
+    max-width: calc(var(--size-grid-width) + 2 * var(--size-padding-mobile));
+    margin: 0 auto;
+    padding: 0px var(--size-padding-mobile);
 
-        .home {
-            display: flex;
-            flex-direction: column;
+    .materias-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 40px 20px 40px;
 
-            .titles {
-                margin-left: 150px;
-                margin-bottom: -45px;
-                color: #3e3d56;
-                h1 {
-                    margin-top: 30px;
-                    font-size: 48px;
-                }
-                h2 {
-                    margin-top: -15px;
-                    font-size: 24px;
-                }
+        .title {
+            h1 {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 48px;
+                color: var(--color-black);
+                line-height: 70px;
             }
-            select {
-                width: 168px;
-                height: 46px;
-                background-color: #ffffff;
-                align-self: flex-end;
-                margin-right: 150px;
-                margin-bottom: 20px;
-                border: none;
-                padding: 5px;
-                box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
-                border-radius: 12px;
+            h2 {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                color: var(--color-black);
             }
+        }
+    }
 
-            .container-cards {
-                background-color: #ffffff;
-                border-radius: 30px;
-                box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-                align-self: center;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: flex-start;
-                min-width: 90%;
-                padding: 10px;
+    .materias-content {
+        width: 100%;
+        height: 100%;
+        padding: 64px 0px;
 
-                .card {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: none;
-                    background-color: #3c8158;
-                    color: #ffffff;
-                    cursor: pointer;
-                    height: 200px;
-                    width: 150px;
-                    margin: 20px 10px;
-                    transition: 0.5s;
-                    transform: translateX(0px) scale(1);
-                    border-radius: 17px;
-                    text-decoration: none;
-                    text-align: center;
-                    word-break: break-word;
-                }
+        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+        background-color: var(--color-white);
+        border-radius: 35px;
 
-                .card:hover {
-                    background: #00b049;
-                    transform: translateX(0px) scale(1.1);
-                }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .content-card {
+            cursor: pointer;
+            flex: 0 0 220px;
+            height: 273px;
+            margin: 30px 25px;
+            border: none;
+            border-radius: 17px;
+            background-color: #3c8158;
+            h3 {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 36px;
+                text-align: center;
+                color: var(--color-white);
             }
         }
     }

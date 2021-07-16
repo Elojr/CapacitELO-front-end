@@ -65,6 +65,7 @@ const SignIn: React.FC = () => {
                     error={errors.password?.message}
                     icon={<ReactSVG src="/assets/icons/sign/key.svg" />}
                     placeholder="Senha"
+                    type="password"
                 />
             </form>
             <div className="login-submit">
