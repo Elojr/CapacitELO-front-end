@@ -4,6 +4,8 @@ import Head from 'next/head'
 import SignUpLayout from '../layouts/SignUp'
 import BackgroundSign from '../components/BackgroundSign'
 
+import { authRoutesHandler } from '../helpers/authRoutesHandler'
+
 const Cadastro: React.FC = () => {
     return (
         <>
@@ -18,3 +20,5 @@ const Cadastro: React.FC = () => {
 }
 
 export default Cadastro
+
+export const getServerSideProps = authRoutesHandler('public')

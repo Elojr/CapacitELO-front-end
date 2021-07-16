@@ -60,7 +60,7 @@ export default class MyDocument extends Document {
                     />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Poppins:wght@400;600&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Poppins:wght@400;600&amp;display=swap"
                         rel="stylesheet"
                     />
                 </Head>

@@ -1,6 +1,7 @@
 import React from 'react'
 import SignInLayout from '../layouts/SignIn'
 import Head from 'next/head'
+import { authRoutesHandler } from '../helpers/authRoutesHandler'
 
 import BackgroundSign from '../components/BackgroundSign'
 
@@ -18,3 +19,5 @@ const Login: React.FC = () => {
 }
 
 export default Login
+
+export const getServerSideProps = authRoutesHandler('public')

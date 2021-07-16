@@ -1,60 +1,84 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    width: 619px;
-    height: 100vh;
+    max-width: 620px;
+    width: 100%;
+    padding: 100px 80px;
+    margin: 0px var(--size-padding-mobile);
 
-    background: #ffffff;
-    box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.25);
 
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 5px;
 
-    main {
-        align-self: center;
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        margin: auto 0;
-    }
-
-    .logo {
-        margin-left: 25px;
-        margin-bottom: 20px;
-        h1 {
-            font-family: Lato;
-            font-style: normal;
-            font-weight: 800;
-            font-size: 70px;
-            line-height: 40px;
-            letter-spacing: -0.05em;
-            cursor: default;
-            align-self: center;
-            color: #00b049;
-            margin-bottom: 40px;
-            margin-left: 40px;
-            user-select: none;
-        }
-
-        h2 {
-            color: #3e3d56;
-            cursor: default;
-            font-size: 30px;
-            margin-bottom: -10px;
-            margin-right: 45px;
-            user-select: none;
+    .register-logo {
+        max-width: 340px;
+        width: 100%;
+        margin: 0 auto;
+        img {
+            width: 100%;
         }
     }
 
-    .toLogin {
-        align-self: center;
-        font-size: 15px;
-        color: #3e3d56;
-        a {
-            color: #3e3d56;
+    .register-form {
+        margin-top: 65px;
+        & > div + div {
+            margin-top: 20px;
         }
+    }
+
+    .register-submit {
+        margin-top: 10px;
+        .submit-forgot {
+            display: block;
+            max-width: 190px;
+            width: 100%;
+            margin: 0px 4px 0px auto;
+
+            text-align: right;
+            text-decoration: none;
+            font-family: 'Poppins' sans-serif;
+            font-size: 18px;
+            color: var(--color-black);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .submit-button {
+            margin-top: 40px;
+        }
+
+        .submit-register {
+            width: 100%;
+            margin-top: 22px;
+            display: block;
+
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Poppins';
+            font-size: 16px;
+            color: var(--color-black);
+
+            a {
+                text-decoration: underline;
+                font-family: inherit;
+                font-size: inherit;
+                color: inherit;
+            }
+        }
+    }
+
+    .register-arrow {
+        cursor: pointer;
+        width: 60px;
+        padding: 10px;
+    }
+
+    @media (max-width: 510px) {
+        padding: 100px 20px;
     }
 `

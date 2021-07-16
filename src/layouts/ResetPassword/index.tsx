@@ -9,13 +9,18 @@ import { Container } from './styles'
 import SignInputText from '../../components/Inputs/SignInputText'
 import LightGreenButton from '../../components/Buttons/LightGreenButton'
 
-import { api, SEND_EMAIL_FORGOT_PASSWORD } from '../../services/api'
+import { api, RESET_PASSWORD } from '../../services/api'
 
 interface IFormValues {
-    email: string
+    password: string
+    confirmPassword: string
 }
 
-const RecoverPassword: React.FC = () => {
+interface IResetPasswordProps {
+    token: string
+}
+
+const ResetPassword: React.FC<IResetPasswordProps> = ({ token }) => {
     const router = useRouter()
     const {
         register,
@@ -26,7 +31,11 @@ const RecoverPassword: React.FC = () => {
     const handleFormSubmit = React.useCallback<SubmitHandler<IFormValues>>(
         async data => {
             try {
-                await api(SEND_EMAIL_FORGOT_PASSWORD({ body: data }))
+                await api(
+                    RESET_PASSWORD({
+                        body: { token: token, password: data.password },
+                    })
+                )
                 router.push('/login')
             } catch (err) {
                 console.log(err)
@@ -37,35 +46,37 @@ const RecoverPassword: React.FC = () => {
 
     return (
         <Container>
-            <div className="recover-logo">
+            <div className="reset-logo">
                 <img
                     src="/assets/images/logo/welcome-logo.svg"
                     alt="Bem vindo ao Exame"
                 />
             </div>
             <form
-                className="recover-form"
-                id="recover-form"
+                className="reset-form"
+                id="reset-form"
                 onSubmit={handleSubmit(handleFormSubmit)}
             >
-                <p className="form-message">
-                    Insira o seu email e enviaremos um link para você voltar a
-                    acessar a sua conta.
-                </p>
                 <SignInputText
-                    register={register('email')}
-                    error={errors.email?.message}
-                    icon={<ReactSVG src="/assets/icons/sign/mail.svg" />}
-                    placeholder="Email"
+                    register={register('password')}
+                    error={errors.password?.message}
+                    icon={<ReactSVG src="/assets/icons/sign/key.svg" />}
+                    placeholder="Nova Senha"
+                />
+                <SignInputText
+                    register={register('confirmPassword')}
+                    error={errors.confirmPassword?.message}
+                    icon={<ReactSVG src="/assets/icons/sign/key.svg" />}
+                    placeholder="Confirmar Nova Senha"
                 />
             </form>
-            <div className="recover-submit">
+            <div className="reset-submit">
                 <LightGreenButton
                     className="submit-button"
                     type="submit"
-                    form="recover-form"
+                    form="reset-form"
                 >
-                    Enviar Link de Mudança de Senha
+                    ATUALIZAR SENHA
                 </LightGreenButton>
                 <p className="submit-register">
                     Não tem uma conta?{' '}
@@ -78,4 +89,4 @@ const RecoverPassword: React.FC = () => {
     )
 }
 
-export default RecoverPassword
+export default ResetPassword

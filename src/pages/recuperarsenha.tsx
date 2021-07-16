@@ -4,6 +4,8 @@ import Head from 'next/head'
 import RecoverPasswordLayout from '../layouts/RecoverPassword'
 import BackgroundSign from '../components/BackgroundSign'
 
+import { authRoutesHandler } from '../helpers/authRoutesHandler'
+
 const Recuperar: React.FC = () => {
     return (
         <>
@@ -18,3 +20,5 @@ const Recuperar: React.FC = () => {
 }
 
 export default Recuperar
+
+export const getServerSideProps = authRoutesHandler('public')

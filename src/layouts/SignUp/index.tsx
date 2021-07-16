@@ -1,26 +1,44 @@
 import React from 'react'
-import Link from 'next/link'
+
+import { Container } from './styles'
 
 import MainInfo from './MainInfo'
 import SecondaryInfo from './SecondaryInfo'
-import { Container } from './styles'
+
+import { useAuth } from '../../hooks/AuthContext'
+
+export interface IFullFormValues {
+    name?: string
+    email?: string
+    password?: string
+    confirmPassword?: string
+    phone?: string
+    course?: string
+}
 
 const SignUp: React.FC = () => {
+    const [canSubmit, setCanSubmit] = React.useState(false)
+    const [fullFormValues, setFullFormValues] = React.useState<IFullFormValues>(
+        {}
+    )
+
     return (
         <Container>
-            <main>
-                <div className="logo">
-                    <h2>Bem vindo ao</h2>
-                    <h1>exame.</h1>
-                </div>
-                <MainInfo />
-                <p className="toLogin">
-                    Já tem uma conta?&nbsp;
-                    <Link href="/login">
-                        <a>Faça o login!</a>
-                    </Link>
-                </p>
-            </main>
+            {!canSubmit ? (
+                <MainInfo
+                    canSubmit={canSubmit}
+                    setCanSubmit={setCanSubmit}
+                    fullFormValues={fullFormValues}
+                    setFullFormValues={setFullFormValues}
+                />
+            ) : (
+                <SecondaryInfo
+                    canSubmit={canSubmit}
+                    setCanSubmit={setCanSubmit}
+                    fullFormValues={fullFormValues}
+                    setFullFormValues={setFullFormValues}
+                />
+            )}
         </Container>
     )
 }

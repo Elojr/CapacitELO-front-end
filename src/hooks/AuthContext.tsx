@@ -1,73 +1,77 @@
-import {
-    createContext,
-    useContext,
-    useState,
-    useEffect,
-    ReactNode,
-} from 'react'
-import { api } from '../services/api'
-import router, { useRouter } from 'next/router'
-
-interface IAuthContextData {
-    user: IUser | null
-    signIn(data: ISignInDTO): Promise<void>
-}
-
-interface IAuthProviderProps {
-    children: ReactNode
-}
+import { createContext, useContext, useState, ReactNode } from 'react'
+import { api, CREATE_SESSION } from '../services/api'
+import { updateTokenApiClient } from '../services/apiClient'
+import { setCookie, destroyCookie, parseCookies } from 'nookies'
 
 interface IUser {
     id: number
     name: string
-    token: string
+    avatar_url: string | null
+    type: string
 }
 
 interface ISignInDTO {
     email: string
     password: string
 }
+interface ISignInData {
+    user: IUser
+    token: string
+}
+
+interface IAuthContextData {
+    user: IUser | null
+    isAuthenticated: boolean
+    signIn(data: ISignInDTO): Promise<void>
+    signOut(): void
+}
+
+interface IAuthProviderProps {
+    children: ReactNode
+}
 
 export const AuthContext = createContext({} as IAuthContextData)
 
 export function AuthProvider({ children }: IAuthProviderProps) {
-    const [user, setUser] = useState<IUser | null>(null)
-    const router = useRouter()
-
-    useEffect(() => {
-        const user = localStorage.getItem('@exame:user')
-
+    const [user, setUser] = useState<IUser | null>(() => {
+        const { '@exame:user': user } = parseCookies()
         if (!user) {
-            router.push('/login')
-            return
+            return null
         }
-
-        setUser(JSON.parse(user))
-    }, [])
+        return JSON.parse(user) as IUser
+    })
+    const isAuthenticated = !!user
 
     async function signIn({ email, password }: ISignInDTO): Promise<void> {
-        const response = await api.post('/sessions', { email, password })
-        const data = response.data
+        const response = await api(
+            CREATE_SESSION({ body: { email, password } })
+        )
+        const data = response.data as ISignInData
+        setCookie(null, '@exame:token', data.token, {
+            maxAge: 60 * 60 * 1, // 1 hour
+        })
+        setCookie(null, '@exame:user', JSON.stringify(data.user), {
+            maxAge: 60 * 60 * 1, // 1 hour
+        })
+        updateTokenApiClient({ api: api, token: data.token })
         setUser({
             id: data.user.id,
             name: data.user.name,
-            token: data.token,
+            avatar_url: data.user.avatar_url,
+            type: data.user.type,
         })
-        localStorage.setItem(
-            '@exame:user',
-            JSON.stringify({
-                id: data.user.id,
-                name: data.user.name,
-                token: data.token,
-            })
-        )
-        console.log(data)
     }
 
-    async function signOut() {}
+    function signOut(): void {
+        destroyCookie(null, '@exame:token')
+        destroyCookie(null, '@exame:user')
+        setUser(null)
+    }
 
     return (
-        <AuthContext.Provider value={{ user, signIn }}>
+        <AuthContext.Provider
+            value={{ user, isAuthenticated, signIn, signOut }}
+        >
             {children}
         </AuthContext.Provider>
     )

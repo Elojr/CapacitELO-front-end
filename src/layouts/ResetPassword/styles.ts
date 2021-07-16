@@ -13,7 +13,7 @@ export const Container = styled.div`
     position: relative;
     z-index: 5px;
 
-    .recover-logo {
+    .reset-logo {
         max-width: 340px;
         width: 100%;
         margin: 0 auto;
@@ -22,7 +22,7 @@ export const Container = styled.div`
         }
     }
 
-    .recover-form {
+    .reset-form {
         margin-top: 65px;
         .form-message {
             max-width: 400px;
@@ -40,7 +40,7 @@ export const Container = styled.div`
         }
     }
 
-    .recover-submit {
+    .reset-submit {
         margin-top: 10px;
         .submit-forgot {
             display: block;
@@ -60,7 +60,7 @@ export const Container = styled.div`
         }
 
         .submit-button {
-            margin-top: 35px;
+            margin-top: 50px;
         }
 
         .submit-register {
