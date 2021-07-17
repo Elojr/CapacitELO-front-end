@@ -12,7 +12,6 @@ interface IResponse {
     subjects: ISubjects[]
     count: number
 }
-
 function Home() {
     const [materias, setMaterias] = React.useState<ISubjects[]>([])
     async function getSubjects() {
@@ -21,7 +20,7 @@ function Home() {
             const data = response.data as IResponse
             setMaterias(data.subjects)
         } catch (err) {
-            console.log(err)
+            console.log({ ...err })
         }
     }
     React.useEffect(() => {

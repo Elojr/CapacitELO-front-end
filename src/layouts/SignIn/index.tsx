@@ -33,7 +33,7 @@ const SignIn: React.FC = () => {
         async data => {
             try {
                 await signIn(data)
-                router.push('/')
+                router.push('/login')
             } catch (err) {
                 console.log(err)
             }

@@ -35,5 +35,5 @@ export const updateTokenApiClient = ({
     api,
     token,
 }: IUpdateApiClientTokenDTO): void => {
-    api.defaults.headers['Authorization'] = token
+    api.defaults.headers['Authorization'] = `Bearer ${token}`
 }

@@ -15,7 +15,6 @@ export const RESET_PASSWORD = ({
         data: body,
     }
 }
-
 interface ISendEmailForgotPasswordDTO {
     body: {
         email: string
