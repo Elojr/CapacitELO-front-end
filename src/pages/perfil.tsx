@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import ProfileLayout from '../layouts/Profile'
-import BackgroundPrivate from '../components/BackgroundPrivate'
+import BackgroundPrivate from '../components/Backgrounds/BackgroundPrivate'
 import { authRoutesHandler } from '../helpers/authRoutesHandler'
 
 const Perfil: React.FC = () => {

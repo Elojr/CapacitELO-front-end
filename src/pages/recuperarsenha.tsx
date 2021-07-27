@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 
 import RecoverPasswordLayout from '../layouts/RecoverPassword'
-import BackgroundSign from '../components/BackgroundSign'
+import BackgroundSign from '../components/Backgrounds/BackgroundSign'
 
 import { authRoutesHandler } from '../helpers/authRoutesHandler'
 

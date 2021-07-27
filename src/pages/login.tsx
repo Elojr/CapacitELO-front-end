@@ -3,7 +3,7 @@ import SignInLayout from '../layouts/SignIn'
 import Head from 'next/head'
 import { authRoutesHandler } from '../helpers/authRoutesHandler'
 
-import BackgroundSign from '../components/BackgroundSign'
+import BackgroundSign from '../components/Backgrounds/BackgroundSign'
 
 const Login: React.FC = () => {
     return (

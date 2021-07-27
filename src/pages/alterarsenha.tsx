@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { GetServerSidePropsContext } from 'next'
 
 import ResetPasswordLayout from '../layouts/ResetPassword'
-import BackgroundSign from '../components/BackgroundSign'
+import BackgroundSign from '../components/Backgrounds/BackgroundSign'
 
 import { authRoutesHandler } from '../helpers/authRoutesHandler'
 
